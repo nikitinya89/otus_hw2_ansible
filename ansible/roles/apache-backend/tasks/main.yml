@@ -1,0 +1,17 @@
+---
+# tasks file for apache-backend
+
+- name: install apache
+  apt:
+    name: apache2
+    state: latest
+    update_cache: true
+  tags: install
+  notify: restart_apache
+
+- name: update apache config
+  template:
+    src: apache-site.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: reload_apache
+  tags: config

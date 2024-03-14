@@ -1,0 +1,17 @@
+---
+# tasks file for nginx-frontend
+
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest
+    update_cache: true
+  tags: install
+  notify: restart_nginx
+
+- name: update nginx config
+  template:
+    src: nginx-site.conf.j2
+    dest: /etc/nginx/sites-available/default
+  notify: reload_nginx
+  tags: config

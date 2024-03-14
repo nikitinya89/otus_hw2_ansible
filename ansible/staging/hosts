@@ -1,0 +1,9 @@
+[web]
+nginx ansible_host=192.168.111.11
+apache ansible_host=192.168.111.12
+
+[frontend]
+nginx ansible_host=192.168.111.11 
+
+[backend]
+apache ansible_host=192.168.111.12

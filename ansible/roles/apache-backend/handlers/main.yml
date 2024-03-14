@@ -1,0 +1,13 @@
+---
+# handlers file for apache-backend
+
+- name: restart_apache
+  systemd:
+    name: apache2
+    state: restarted
+    enabled: true
+
+- name: reload_apache
+  systemd:
+    name: apache2
+    state: reloaded
