@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
     systemctl restart sshd
   SHELL
   
-
   config.vm.define "front" do |front|
     front.vm.hostname = "nginx"
     front.vm.network "private_network", ip: "192.168.111.11", adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "mynet"
@@ -29,9 +28,5 @@ Vagrant.configure("2") do |config|
     back.vm.hostname = "apache"
     back.vm.network "private_network", ip: "192.168.111.12", adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "mynet"
   end
-
-
-
-
 
 end
